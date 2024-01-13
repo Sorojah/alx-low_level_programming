@@ -1,50 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
 
 /**
-* check_num - Checks if the string consists only of digits
-* @str: The string to check
-*
-* Return: 1 if string contains only digits, 0 otherwise
-*/
-int check_num(char *str)
-{
-for (int i = 0; str[i] != '\0'; i++)
-{
-if (!isdigit(str[i]))
-{
-return (0);
-}
-}
-return (1);
-}
-
-/**
-* main - Sums the numbers provided as arguments
-* @argc: Count of arguments
-* @argv: Array of arguments
-*
+* main - Prints the minimum number of coins to make change
+* @argc: Argument count
+* @argv: Argument vector
 * Return: 0 if success, 1 if an error occurred
 */
 int main(int argc, char *argv[])
 {
-int sum = 0;
-
-for (int i = 1; i < argc; i++)
-{
-if (check_num(argv[i]))
-{
-sum += atoi(argv[i]);
-}
-else
+int amount, coins_count, i;
+int coins[] = {25, 10, 5, 2, 1};
+if (argc != 2)
 {
 printf("Error\n");
 return (1);
 }
+amount = atoi(argv[1]);
+if (amount <= 0)
+{
+printf("0\n");
+return (0);
 }
-
-printf("%d\n", sum);
+coins_count = 0;
+for (i = 0; i < 5; i++)
+{
+coins_count += amount / coins[i];
+amount %= coins[i];
+}
+printf("%d\n", coins_count);
 return (0);
 }
