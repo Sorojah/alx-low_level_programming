@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 /**
@@ -12,7 +10,7 @@
 char *_strdup(char *str)
 {
 char *dup;
-unsigned int len;
+unsigned int len, i;
 
 if (str == NULL)
 {
@@ -27,7 +25,7 @@ if (dup == NULL)
 return (NULL);
 }
 
-for (unsigned int i = 0; i < len; i++)
+for (i = 0; i < len; i++)
 {
 dup[i] = str[i];
 }
