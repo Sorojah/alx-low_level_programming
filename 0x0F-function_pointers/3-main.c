@@ -23,9 +23,9 @@ exit(98);
 /* Convert arguments to integers */
 num1 = atoi(argv[1]);
 num2 = atoi(argv[3]);
+func = get_op_func(argv[2]);
 
 /* Get the function for the operation */
-func = get_op_func(argv[2]);
 if (!func)
 {
 printf("Error\n");
