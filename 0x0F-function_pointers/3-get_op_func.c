@@ -26,6 +26,5 @@ if (*ops[i].op == *s)
 return (ops[i].f);
 }
 }
-
 return (NULL);
 }
