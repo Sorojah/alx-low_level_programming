@@ -6,6 +6,7 @@
 * @s: The operator as a string.
 * Return: Pointer to the corresponding function.
 */
+
 int (*get_op_func(char *s))(int, int)
 {
 op_t ops[] = {
@@ -16,15 +17,11 @@ op_t ops[] = {
 {"%", op_mod},
 {NULL, NULL}
 };
-int i;
+int i = 0;
 
-/* Loop through the struct to find the matching operator */
-for (i = 0; ops[i].op != NULL; i++)
+while (ops[i].op != NULL && *ops[i].op != *s)
 {
-if (*ops[i].op == *s)
-{
+i++;
+}
 return (ops[i].f);
-}
-}
-return (NULL);
 }
